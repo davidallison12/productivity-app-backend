@@ -3,7 +3,7 @@ const express = require('express')
 
 /* == Internal Modules === */
 
-
+const routes = require('./routers');
 
 /* == Cors Modules === */
 const cors = require('cors')
@@ -46,9 +46,11 @@ app.get('/', (req, res) => {
     res.send('This is the working route.')
 })
 
+app.use('/goals', routes.goals)
+app.use('/tasks', routes.tasks)
 
 /* == Server Bind  === */
 
-app.listen(PORT, (req, res) => {
+app.listen(PORT, () => {
     console.log(`Now listening on PORT ${PORT}🥳`)
 })
