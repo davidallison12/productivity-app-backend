@@ -1,34 +1,54 @@
-// external modules
+/* == External Modules === */
 const express = require('express')
 
-//internal modules
-const routes = require('./routers')
-
-// PORT
-const PORT = process.env.PORT || 3000
-
-// cors
-// const cors = require('cors')
+/* == Internal Modules === */
 
 
-//express instance
+
+/* == Cors Modules === */
+const cors = require('cors')
+
+/* PORT */
+const PORT = process.env.PORT || 3003
+
+
+/* == Express Instance === */
 const app = express()
 
-//db connection
+
+
+/* == DB Connection  === */
 require('./config/db.connection')
 
-// middlewares
+
+
+/* == middlewares  === */
+
+// Set up Cors middleware
+const whitelist = ['http://localhost:3000', 'heroku frontend url here']
+const coreOptions = {
+    origin: (origin, callback) => {
+        if (whitelist.indexOf(origin) !== -1 || !origin) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    }
+}
+
+app.use(cors(coreOptions))
 app.use(express.json())
 
-// routes
+
+
+/* == Routes === */
 app.get('/', (req, res) => {
-    res.send('hello')
+    res.send('This is the working route.')
 })
 
-app.use('/goals', routes.goals)
-app.use('/tasks', routes.tasks)
 
+/* == Server Bind  === */
 
-app.listen(PORT, () => {
-    console.log(`Server listening at http://localhost:${PORT}`)
+app.listen(PORT, (req, res) => {
+    console.log(`Now listening on PORT ${PORT}🥳`)
 })
