@@ -3,6 +3,7 @@ const express = require('express')
 
 /* == Internal Modules === */
 
+const routes = require('./routers');
 
 
 /* == Cors Modules === */
@@ -45,6 +46,12 @@ app.use(express.json())
 app.get('/', (req, res) => {
     res.send('This is the working route.')
 })
+
+app.use('/goals', routes.goals)
+app.use('/tasks', routes.tasks)
+
+
+
 
 
 /* == Server Bind  === */
