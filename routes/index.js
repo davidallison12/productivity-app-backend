@@ -1,3 +1,5 @@
 module.exports = {
-  users: require('./users.routes')
+    goals: require('./goals.routes'),
+    tasks: require('./tasks.routes'),
+    users: require('./users.routes')
 }
