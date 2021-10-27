@@ -3,7 +3,7 @@ const express = require('express')
 
 /* == Internal Modules === */
 
-const routes = require('./routers');
+const routes = require('./routes');
 
 
 /* == Cors Modules === */
