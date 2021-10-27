@@ -2,10 +2,14 @@
 const express = require('express')
 
 
+<<<<<<< HEAD
 /* == Internal Modules === */
 const routes = require('./routes')
 const session = require('express-session')
 
+=======
+const routes = require('./routers');
+>>>>>>> 673475d (fixed server.js and got mongodb connected)
 
 /* == Cors Modules === */
 const cors = require('cors')
@@ -64,10 +68,13 @@ app.get('/', (req, res) => {
 
 app.use('/goals', routes.goals)
 app.use('/tasks', routes.tasks)
+<<<<<<< HEAD
 app.use('/users', routes.users)
+=======
+>>>>>>> 673475d (fixed server.js and got mongodb connected)
 
 /* == Server Bind  === */
 
-app.listen(PORT, (req, res) => {
+app.listen(PORT, () => {
     console.log(`Now listening on PORT ${PORT}🥳`)
 })
