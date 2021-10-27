@@ -46,7 +46,7 @@ const destroy = (req, res) => {
     db.Task.findByIdAndDelete(req.params.id, (error, deletedTask) => {
         if (error) return res.status(400).json({ error: error.message })
         return res.status(200).json({
-            message:`Task ${deletedTask.name} dleted successfully.`
+            message:`Task ${deletedTask.name} deleted successfully.`
         })
     })}
 

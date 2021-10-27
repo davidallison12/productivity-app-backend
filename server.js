@@ -62,6 +62,8 @@ app.get('/', (req, res) => {
     res.send('This is the working route.')
 })
 
+app.use('/goals', routes.goals)
+app.use('/tasks', routes.tasks)
 app.use('/users', routes.users)
 
 /* == Server Bind  === */
