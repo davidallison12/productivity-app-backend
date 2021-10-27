@@ -7,7 +7,7 @@ const goalSchema = new Schema ({
         required: true
     },
     dueDate: {
-        type: String, 
+        type: Date, 
         required: true
     },
     accomplished: {
