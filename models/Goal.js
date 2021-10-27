@@ -2,17 +2,20 @@ const mongoose  = require('mongoose')
 const { Schema, model } = mongoose
 
 const goalSchema = new Schema ({
-    name: {
+    goal: {
         type: String,
         required: true
     },
-    description: {
+    dueDate: {
         type: String, 
         required: true
     },
     accomplished: {
         type: Boolean, 
         default: false
+    },
+    tags: {
+        type: [String]
     }
 
 })

@@ -7,9 +7,14 @@ const express = require('express')
 const routes = require('./routes')
 const session = require('express-session')
 
+<<<<<<< HEAD
 =======
 const routes = require('./routers');
 >>>>>>> 673475d (fixed server.js and got mongodb connected)
+=======
+const routes = require('./routes');
+
+>>>>>>> af2684c (Backend bugs)
 
 /* == Cors Modules === */
 const cors = require('cors')

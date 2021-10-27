@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const db = require('../models')
 
 
@@ -35,7 +34,7 @@ const update = (req, res) => {
 
             return res.status(200).json(updatedGoal)
 
-        
+
         }
     )
 }
@@ -61,8 +60,3 @@ module.exports = {
     update,
     destroy,
 }
-=======
-const express = require('express')
-const router = express.Router()
-const Goal = require('../models/Goal.js')
->>>>>>> dc450de (added goals and tasks routes, controllers, and models)

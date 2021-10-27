@@ -34,7 +34,7 @@ const update = (req, res) => {
 
             return res.status(200).json(updatedTask)
 
-        
+
         }
     )
 }
@@ -46,11 +46,7 @@ const destroy = (req, res) => {
     db.Task.findByIdAndDelete(req.params.id, (error, deletedTask) => {
         if (error) return res.status(400).json({ error: error.message })
         return res.status(200).json({
-<<<<<<< HEAD
             message:`Task ${deletedTask.name} deleted successfully.`
-=======
-            message:`Task ${deletedTask.name} dleted successfully.`
->>>>>>> dc450de (added goals and tasks routes, controllers, and models)
         })
     })}
 
@@ -64,4 +60,3 @@ module.exports = {
     update,
     destroy,
 }
-
