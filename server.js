@@ -1,22 +1,10 @@
 /* == External Modules === */
 const express = require('express')
 
-
-<<<<<<< HEAD
 /* == Internal Modules === */
 const routes = require('./routes')
 const session = require('express-session')
 
-<<<<<<< HEAD
-=======
-const routes = require('./routes');
-=======
-/* == Internal Modules === */
-const routes = require('./routes')
-const session = require('express-session')
->>>>>>> 99da5b4 (Added express sessions package and use routes to server.js, cleaned up user.ctrls & user.routes - ALL ROUTES WORK)
-
->>>>>>> af2684c (Backend bugs)
 
 /* == Cors Modules === */
 const cors = require('cors')
@@ -77,9 +65,6 @@ app.use('/goals', routes.goals)
 app.use('/tasks', routes.tasks)
 app.use('/users', routes.users)
 
-
-
->>>>>>> 99da5b4 (Added express sessions package and use routes to server.js, cleaned up user.ctrls & user.routes - ALL ROUTES WORK)
 
 /* == Server Bind  === */
 
