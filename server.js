@@ -9,10 +9,12 @@ const session = require('express-session')
 
 <<<<<<< HEAD
 =======
-const routes = require('./routers');
->>>>>>> 673475d (fixed server.js and got mongodb connected)
-=======
 const routes = require('./routes');
+=======
+/* == Internal Modules === */
+const routes = require('./routes')
+const session = require('express-session')
+>>>>>>> 99da5b4 (Added express sessions package and use routes to server.js, cleaned up user.ctrls & user.routes - ALL ROUTES WORK)
 
 >>>>>>> af2684c (Backend bugs)
 
@@ -73,10 +75,11 @@ app.get('/', (req, res) => {
 
 app.use('/goals', routes.goals)
 app.use('/tasks', routes.tasks)
-<<<<<<< HEAD
 app.use('/users', routes.users)
-=======
->>>>>>> 673475d (fixed server.js and got mongodb connected)
+
+
+
+>>>>>>> 99da5b4 (Added express sessions package and use routes to server.js, cleaned up user.ctrls & user.routes - ALL ROUTES WORK)
 
 /* == Server Bind  === */
 
