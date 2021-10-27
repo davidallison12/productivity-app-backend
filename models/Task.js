@@ -2,17 +2,21 @@ const mongoose  = require('mongoose')
 const { Schema, model } = mongoose
 
 const taskSchema = new Schema ({
-    name: {
+    task: {
         type: String,
         required: true
     },
-    description: {
-        type: String, 
+    dueDate: {
+        type: Date, 
         required: true
     },
     accomplished: {
         type: Boolean, 
         default: false
+    }, 
+    createdOn: {
+        type: Date,
+        default: Date.now()
     }
 
 })
