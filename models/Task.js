@@ -16,7 +16,7 @@ const taskSchema = new Schema ({
     }, 
     createdOn: {
         type: String,
-        default: new Date().toJSON().slice(0,10)
+        default: new Date().toJSON().slice(0,10) // https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript?rq=1
     }
 
 })
