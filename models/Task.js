@@ -7,7 +7,7 @@ const taskSchema = new Schema ({
         required: true
     },
     dueDate: {
-        type: Date, 
+        type: String, 
         required: true
     },
     accomplished: {
@@ -15,8 +15,8 @@ const taskSchema = new Schema ({
         default: false
     }, 
     createdOn: {
-        type: Date,
-        default: Date.now()
+        type: String,
+        default: new Date().toJSON().slice(0,10)
     }
 
 })

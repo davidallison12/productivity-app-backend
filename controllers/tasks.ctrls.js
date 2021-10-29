@@ -23,6 +23,7 @@ const create = (req, res) => {
 
 // update
 const update = (req, res) => {
+    console.log(req.body)
     db.Task.findByIdAndUpdate(
         req.params.id,
         req.body,
