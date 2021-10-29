@@ -23,6 +23,7 @@ const create = (req, res) => {
 
 // update
 const update = (req, res) => {
+    console.log(req.body)
     db.Goal.findByIdAndUpdate(
         req.params.id,
         req.body,
