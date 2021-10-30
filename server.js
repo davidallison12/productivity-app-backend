@@ -9,6 +9,7 @@ const routes = require('./routes');
 /* == Cors Modules === */
 const cors = require('cors')
 
+const session = require('express-session')
 /* PORT */
 const PORT = process.env.PORT || 3003
 
@@ -39,7 +40,26 @@ const coreOptions = {
 }
 
 app.use(cors(coreOptions))
+
+//Session Secret
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+
+const isAuthenticated = (req, res, next) => {
+    if (req.session.currentUser) {
+        return next()
+    } else {
+        res.status(403).json({msg:"login required"})
+    }
+}
+
 app.use(express.json())
+
+
+
 
 
 
@@ -48,8 +68,8 @@ app.get('/', (req, res) => {
     res.send('This is the working route.')
 })
 
-app.use('/goals', routes.goals)
-app.use('/tasks', routes.tasks)
+app.use('/goals', isAuthenticated, routes.goals)
+app.use('/tasks', isAuthenticated, routes.tasks)
 app.use('/users', routes.users)
 
 
