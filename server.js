@@ -1,6 +1,5 @@
 /* == External Modules === */
 const express = require('express')
-const MongoDBStore = require('connect-mongodb-session')(session)
 /* == Internal Modules === */
 
 const routes = require('./routes');
@@ -10,6 +9,7 @@ const routes = require('./routes');
 const cors = require('cors')
 
 const session = require('express-session')
+const MongoDBStore = require('connect-mongodb-session')(session)
 /* PORT */
 const PORT = process.env.PORT || 3003
 
