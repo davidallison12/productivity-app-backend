@@ -12,6 +12,7 @@ const index = (req, res) => {
 
 //create
 const create = (req, res) => {
+    console.log(req.body)
     db.Goal.create(req.body, (error, createdGoal) => {
         if(error) return res.status(400).json({ error: error.message })
 

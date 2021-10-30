@@ -68,8 +68,8 @@ app.get('/', (req, res) => {
     res.send('This is the working route.')
 })
 
-app.use('/goals', isAuthenticated, routes.goals)
-app.use('/tasks', isAuthenticated, routes.tasks)
+app.use('/goals', routes.goals)
+app.use('/tasks', routes.tasks)
 app.use('/users', routes.users)
 
 

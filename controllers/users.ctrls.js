@@ -23,8 +23,9 @@ const signup = (req, res) => {
   });
 };
 
-// // USER LOGIN ROUTE (CREATE SESSION)
+// USER LOGIN ROUTE (CREATE SESSION)
 const login = (req, res) => {
+  console.log(req.body)
   db.User.findOne({ username: req.body.username }, (err, foundUser) => {
     if (err) {
       res.send(err);
