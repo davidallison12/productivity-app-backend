@@ -21,7 +21,38 @@ const signup = (req, res) => {
   })
 }
 
+// // USER LOGIN ROUTE (CREATE SESSION)
+const login = (req, res) => {
+  db.User.findOne({ username: req.body.username }, (err, foundUser) => {
+    if (err) {
+      res.send(err)
+    } else {
+      if (foundUser) {
+        if (bcrypt.compareSync(req.body.password, foundUser.password)){
+          req.session.currentUser = foundUser
+          console.log('User has been logged in')
+          res.status(200).json(foundUser)
+        } else {
+          res.status(404).json({error: 'Incorrect password'})
+        } 
+      } else {
+        res.status(400).json({error: err})
+        }
+      }
+    })
+  }
+
+
+const logout = (req, res) => {
+  req.session.destroy(() => {
+    res.status(200).json({msg:'Users logged out'})
+  })
+}
+
+
 
 module.exports = {
-  signup
+  signup,
+  login,
+  logout,
 }
