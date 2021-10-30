@@ -43,7 +43,7 @@ app.use(cors(coreOptions))
 
 //Session Secret
 app.use(session({
-    secret: process.env.SECRET,
+    secret: "vchbgcvjb",
     resave: false,
     saveUninitialized: false
 }))
