@@ -1,6 +1,6 @@
 /* == External Modules === */
 const express = require('express')
-
+const MongoDBStore = require('connect-mongodb-session')(session)
 /* == Internal Modules === */
 
 const routes = require('./routes');
@@ -27,7 +27,7 @@ require('./config/db.connection')
 /* == middlewares  === */
 
 // Set up Cors middleware
-const whitelist = ['http://localhost:3000', 'heroku frontend url here']
+const whitelist = ['http://localhost:3000', process.env.HEROKUFRONTURL]
 const coreOptions = {
     origin: (origin, callback) => {
         if (whitelist.indexOf(origin) !== -1 || !origin) {
@@ -36,17 +36,37 @@ const coreOptions = {
             callback(new Error('Not allowed by CORS'))
         }
     },
-    // credentials: true
+    credentials: true
 }
 
 app.use(cors(coreOptions))
 
+app.set('trust proxy', 1)
+
+
+
 //Session Secret
 app.use(session({
-    secret: "vchbgcvjb",
+    secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: new MongoDBStore({ // All this added below
+        uri: process.env.MONGODBURI,
+        collection: 'mySessions'
+    }),
+    cookie:{
+        sameSite: 'none',
+        secure: true
+}
 }))
+
+//Prior to deployment
+// app.use(session({ 
+//     secret: process.env.SECRET,
+//     resave: false,
+//     saveUninitialized: false,
+// }))
+
 
 const isAuthenticated = (req, res, next) => {
     if (req.session.currentUser) {

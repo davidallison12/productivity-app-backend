@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 // === Connection string ===
-const connectionStr = process.env.MONGODB_URI || 'mongodb://localhost:27017/productivity'
+const connectionStr = process.env.MONGODBURI || 'mongodb://localhost:27017/productivity'
 
 // Set up out connection
 
