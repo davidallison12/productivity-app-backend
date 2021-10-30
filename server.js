@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
 
 app.use('/goals', routes.goals)
 app.use('/tasks', routes.tasks)
-
+app.use('/users', routes.users)
 
 
 
